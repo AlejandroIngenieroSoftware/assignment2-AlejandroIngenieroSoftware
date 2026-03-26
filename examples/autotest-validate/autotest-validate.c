@@ -1,31 +1,30 @@
-/**
-* A simple file to validate your automated test setup for AESD
-*/
+#include <string.h>
+#include <ctype.h>
 
-#include "autotest-validate.h"
-#include <stdbool.h>
+/* ===== FUNCIONES QUE FALTABAN ===== */
 
-/**
-* @return true (as you may have guessed from the name)
-*/
-bool this_function_returns_true()
+int this_function_returns_true()
 {
-    return true;
+    return 1;
 }
 
-/**
-* @return false (as you may have guessed from the name)
-*/
-bool this_function_returns_false()
+int this_function_returns_false()
 {
-    return false;
+    return 0;
 }
 
-/**
- * @return a string which contains the username you use for
- * git submissions.  This string should match the string in conf/username.txt
- */
-const char *my_username()
+/* ===== TU FUNCIÓN ===== */
+
+int validate_username(const char *username)
 {
-    return "todo-please-enter-your-username-here-in-my_username";
+    if (username == NULL || strlen(username) == 0)
+        return 0;
+
+    for (int i = 0; username[i] != '\0'; i++)
+    {
+        if (!isalnum(username[i]))
+            return 0;
+    }
+
+    return 1;
 }
