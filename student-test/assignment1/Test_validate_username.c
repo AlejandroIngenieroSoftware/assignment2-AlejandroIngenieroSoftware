@@ -5,6 +5,8 @@
 extern int validate_username(const char *username);
 
 void test_valid_username(void)
+
+void test_validate_my_username()
 {
     TEST_ASSERT_EQUAL(1, validate_username("AlejandroIngenieroSoftware"));
 }
